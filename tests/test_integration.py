@@ -24,4 +24,12 @@ def test_reading_time_returns_time_to_read_all_entries():
     diary.add(entry_1)
     diary.add(entry_2)
     assert diary.reading_time(2) == 3
-    
+
+'''Given two diary entries, one long and one short and best_entry_for_reading_time called, with a wpm and minutes that means only the short one is read, find_best_entry_for_reading_time returns the shortest one'''
+def test_find_best_entry_for_reading_time_returns_entry_that_fits_in_time():
+    diary = Diary()
+    entry_1 = DiaryEntry("My Title 1", "One Two Three")
+    entry_2 = DiaryEntry("My Title 2", "One Two Three Four Five Six Seven")
+    diary.add(entry_1)
+    diary.add(entry_2)
+    assert diary.find_best_entry_for_reading_time(2, 3)

@@ -19,3 +19,11 @@ class Diary():
             raise Exception("No entries added yet")
         word_count = self.count_words()
         return ceil(word_count/wpm)
+    
+    def find_best_entry_for_reading_time(self, wpm, minutes):
+        words_the_user_could_read = wpm * minutes
+        readable_entries = []
+        for entry in self._entries:
+            if entry.count_words() <= words_the_user_could_read:
+                readable_entries.append(entry)
+        return readable_entries[0]
