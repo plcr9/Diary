@@ -9,7 +9,8 @@ class Diary():
         return self._entries
 
     def count_words(self):
-        pass
+        word_counts = ([entry.count_words() for entry in self._entries])
+        return sum(word_counts)
 
     def reading_time(self):
         pass
