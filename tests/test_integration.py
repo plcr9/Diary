@@ -47,3 +47,12 @@ def test_find_best_entry_for_reading_time_returns_none_if_single_entry_does_not_
     entry_1 = DiaryEntry("My Title 1", "One Two Three Four Five Six Seven")
     diary.add(entry_1)
     assert diary.find_best_entry_for_reading_time(2, 3) == None
+
+'''Given two diary entries, call read_best_entry_for_reading_time, with a wpm and miniutes that means both can be read, then find_best_entry_for_reading_time returns the longer time'''
+def test_find_best_entry_for_reading_time_returns_the_longest_readable():
+    diary = Diary()
+    entry_1 = DiaryEntry("My Title 1", "One Two Three")
+    entry_2 = DiaryEntry("My Title 2", "One Two Three Four Five Six Seven")
+    diary.add(entry_1)
+    diary.add(entry_2)
+    assert diary.find_best_entry_for_reading_time(2, 4) == entry_2

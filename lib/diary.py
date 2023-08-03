@@ -22,10 +22,11 @@ class Diary():
     
     def find_best_entry_for_reading_time(self, wpm, minutes):
         words_the_user_could_read = wpm * minutes
-        readable_entries = []
+        most_readable = None
+        longest_found_so_far = 0
         for entry in self._entries:
             if entry.count_words() <= words_the_user_could_read:
-                readable_entries.append(entry)
-        if readable_entries == []:
-            return None
-        return readable_entries[0]
+                if entry.count_words() > longest_found_so_far:
+                    most_readable = entry
+                    longest_found_so_far = entry.count_words()
+        return most_readable
