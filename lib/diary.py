@@ -26,4 +26,6 @@ class Diary():
         for entry in self._entries:
             if entry.count_words() <= words_the_user_could_read:
                 readable_entries.append(entry)
+        if readable_entries == []:
+            return None
         return readable_entries[0]

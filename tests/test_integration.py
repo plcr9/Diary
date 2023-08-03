@@ -32,4 +32,18 @@ def test_find_best_entry_for_reading_time_returns_entry_that_fits_in_time():
     entry_2 = DiaryEntry("My Title 2", "One Two Three Four Five Six Seven")
     diary.add(entry_1)
     diary.add(entry_2)
-    assert diary.find_best_entry_for_reading_time(2, 3)
+    assert diary.find_best_entry_for_reading_time(2, 3) == entry_1
+
+'''Given diary entry added, and call find best entry for reading time, with a wpm and minutes the entry can be read and find_best_entry_for_reading_time returns that entry'''
+def test_find_best_entry_for_reading_time_returns_single_entry_that_fits_time():
+    diary = Diary()
+    entry_1 = DiaryEntry("My Title 1", "One Two Three")
+    diary.add(entry_1)
+    assert diary.find_best_entry_for_reading_time(2, 3) == entry_1
+
+'''Given diary entry, if diary entry cannot be read, it returns None'''
+def test_find_best_entry_for_reading_time_returns_none_if_single_entry_does_not_fit():
+    diary = Diary()
+    entry_1 = DiaryEntry("My Title 1", "One Two Three Four Five Six Seven")
+    diary.add(entry_1)
+    assert diary.find_best_entry_for_reading_time(2, 3) == None
