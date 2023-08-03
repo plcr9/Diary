@@ -1,9 +1,10 @@
 class DiaryEntry():
-    def __init__(self):
-        pass
+    def __init__(self, title, contents):
+        self.title = title
+        self.contents = contents
 
-    def add(self, entry):
-        pass
+    def count_words(self):
+        return len(self.contents.split())
 
-    def all(self):
+    def reading_time(self, wpm):
         pass
