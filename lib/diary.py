@@ -1,4 +1,4 @@
-import math
+from math import ceil
 
 class Diary():
     def __init__(self):
@@ -15,5 +15,7 @@ class Diary():
         return sum(word_counts)
 
     def reading_time(self, wpm):
+        if self._entries == []:
+            raise Exception("No entries added yet")
         word_count = self.count_words()
-        return math.ceil(word_count/wpm)
+        return ceil(word_count/wpm)
