@@ -26,3 +26,10 @@ def test_readable_chunk_second_chunk():
     diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
     assert diary_entry.reading_chunk(2, 1) == "One Two"
     assert diary_entry.reading_chunk(2, 1) == "Three Four"
+
+'''When initialise with 5 words contents, on third call, reading_chunk should return final, partial chunk'''
+def test_readable_chunk_third_chunk():
+    diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    assert diary_entry.reading_chunk(2, 1) == "Five"
