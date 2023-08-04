@@ -21,6 +21,8 @@ class Diary():
         return ceil(word_count/wpm)
     
     def find_best_entry_for_reading_time(self, wpm, minutes):
+        if self._entries == []:
+            raise Exception("No entries added yet")
         words_the_user_could_read = wpm * minutes
         most_readable = None
         longest_found_so_far = 0
