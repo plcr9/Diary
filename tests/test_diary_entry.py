@@ -11,4 +11,7 @@ def test_count_words_returns_word_count_of_contents():
     diary_entry = DiaryEntry("My Title", "one two three four five")
     assert diary_entry.count_words() == 5
 
-    
+'''When initialise with 5 words contents, reading_time with wpm of 2 should return 3'''
+def test_reading_time():
+    diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
+    assert diary_entry.reading_time(2) == 3
