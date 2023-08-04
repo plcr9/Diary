@@ -15,3 +15,14 @@ def test_count_words_returns_word_count_of_contents():
 def test_reading_time():
     diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
     assert diary_entry.reading_time(2) == 3
+
+'''When initialise with 5 words contents, at first reading_chunk should return first chunk'''
+def test_readable_chunk_first_chunk():
+    diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
+    assert diary_entry.reading_chunk(2, 1) == "One Two"
+
+'''When initialise with 5 words contents, on second call, reading_chunk should return second chunk'''
+def test_readable_chunk_second_chunk():
+    diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
+    assert diary_entry.reading_chunk(2, 1) == "One Two"
+    assert diary_entry.reading_chunk(2, 1) == "Three Four"
