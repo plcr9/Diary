@@ -33,3 +33,12 @@ def test_readable_chunk_third_chunk():
     diary_entry.reading_chunk(2, 1)
     diary_entry.reading_chunk(2, 1)
     assert diary_entry.reading_chunk(2, 1) == "Five"
+
+'''When initialise with 5 words contents, on fourth call, reading_chunk should start again from beginning'''
+def test_readable_chunk_fourth_chunk():
+    diary_entry = DiaryEntry("My Title", "One Two Three Four Five")
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    diary_entry.reading_chunk(2, 1)
+    assert diary_entry.reading_chunk(2, 1) == "One Two"
+

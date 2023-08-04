@@ -13,8 +13,10 @@ class DiaryEntry():
         return ceil(self.count_words()/wpm)
     
     def reading_chunk(self, wpm, minutes):
-        readable_chunk_length = wpm * minutes
         words = self.contents.split()
+        if self._stop_off_point >= len(words):
+            self._stop_off_point = 0
+        readable_chunk_length = wpm * minutes
         start_point = self._stop_off_point
         end_point = self._stop_off_point + readable_chunk_length
         readable_chunk = " ".join(words[start_point:end_point])
